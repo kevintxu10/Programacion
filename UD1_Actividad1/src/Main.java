@@ -97,6 +97,9 @@ public class Main {
         Ejercicio 8:Escribe un programa que lee dos números y los visualiza en orden ascendente.
          */
         System.out.println("\nEjercicio 8");
+        sc = new Scanner(System.in);
+        System.out.println()
+
 
 
 
