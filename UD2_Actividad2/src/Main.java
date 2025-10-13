@@ -97,10 +97,113 @@ public class Main {
 
         System.out.println("\n Ejercicio 9");
         sc = new Scanner(System.in);
+        System.out.print("Introduce las horas: ");
+        int horas = sc.nextInt();
+        System.out.print("Introduce los minutos: ");
+        int minutos = sc.nextInt();
+        System.out.print("Introduce los segundos: ");
+        int segundos = sc.nextInt();
 
 
+        segundos++;
+
+        if (segundos == 60) {
+            segundos = 0;
+            minutos++;
+        }
+
+        if (minutos == 60) {
+            minutos = 0;
+            horas++;
+        }
+
+        if (horas == 24) {
+            horas = 0;
+        }
+
+        System.out.printf("Dentro de un segundo serán:" + horas+":"+ minutos+":" +segundos);
 
 
+        System.out.println("\n Ejercicio 10");
+        sc = new Scanner(System.in);
+        boolean negativo = false;
+        System.out.println("Intoduce 10 numeros (no nulos)");
+        for (int i = 1; i <=10; i++) {
+            System.out.print("Numero" + i +":");
+            int numero = sc.nextInt();
+
+            if (numero == 0) {
+                System.out.println("El numero no puede ser cero");
+            } else if (numero <0) {
+                negativo = true;
+            }
+            }
+        if (negativo) {
+            System.out.println("Si, se ha leido numeros negativo");
+        }else {
+            System.out.println("No, todos los numeros son positivos");
+        }
+
+
+        System.out.println("\n Ejercicio 11");
+        sc = new Scanner(System.in);
+        int positivos = 0;
+        int negativos = 0;
+
+        System.out.println("Introduce 10 números (no pueden ser cero):");
+
+        for (int i = 1; i <= 10; i++) {
+            System.out.print("Número " + i + ": ");
+            int numero = sc.nextInt();
+
+            if (numero > 0) {
+                positivos++;
+            }
+            if (numero<0){
+                negativos++;
+            }
+        }
+
+        System.out.println("Cantidad de números positivos: " + positivos);
+        System.out.println("Cantidad de números negativos: " + negativos);
+
+
+        System.out.println("\n Ejercicio 12");
+        sc = new Scanner(System.in);
+        int posi = 0;
+        int negat = 0;
+
+        System.out.println("Introduce una secuencia de números (introduce 0 para terminar):");
+
+        int numero;
+        do {
+            System.out.print("Número: ");
+            numero = sc.nextInt();
+
+            if (numero > 0) {
+                positivos++;
+            } else if (numero < 0) {
+                negat++;
+            }
+
+        } while (numero != 0);
+
+
+        System.out.println("Cantidad de números positivos: " + positivos);
+        System.out.println("Cantidad de números negativos: " + negat);
+
+        System.out.println("\n Ejercicio 13");
+        sc = new Scanner(System.in);
+        int suma = 0;
+        int multiplicacion = 1;
+
+        for (int i = 1; i <= 10; i++) {
+            suma += i;
+            multiplicacion *= i;
+        }
+
+        System.out.println("La suma de los 10 primeros números naturales es: " + suma);
+        System.out.println("El producto de los 10 primeros números naturales es: " + multiplicacion);
 
 
     }
