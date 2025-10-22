@@ -12,12 +12,18 @@ public class E3 {
             numeros[i] = sc.nextDouble();
         }
 
-        double maximo = numeros[0];
-        double minimo = numeros[0];
+        double maximo = Double.MIN_VALUE;
+        double minimo = Double.MAX_VALUE;
 
         for(int i = 1; i < numeros.length; i++){
+            maximo = Math.max(numeros[i], maximo);
+            minimo = Math.min(numeros[i], minimo);
+                                                    // Se puede hacer de las dos formas
             if (numeros[1] > maximo) {
                 maximo = numeros[i];
+            }
+            if (numeros[i] < minimo) {
+                minimo = numeros[i];
             }
         }
 
