@@ -9,7 +9,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int [] array3 =   new int [10];
 
-        String opcion = "c";
+         String opcion = "c";
 
         int contadorPosicion = 0;
         do{
