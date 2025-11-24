@@ -16,6 +16,7 @@ public class Movimiento {
     }
 
     public void mostrarInfoMovimiento(){
+        System.out.println("-------");
         System.out.println("ID:" + id);
         System.out.println("Fecha:" + fecha);
         System.out.println("Tipo" + tipo);

@@ -12,6 +12,7 @@ public class CuentaBancaria {
         this.saldo = 0;
         this.movimientos = new Movimiento[100];
         this.numMovimientos = 0;
+
     }
     public String getIban(){
         return iban;
@@ -43,7 +44,7 @@ public class CuentaBancaria {
         }
         saldo +=cantidad;
         registrarMovimiento(new Movimiento(fecha, "Ingreso", cantidad));
-        if (cantidad > 3000){
+        if (cantidad >= 3000){
             System.out.println("AVISO: Notificar a hacienda");
         }
     }
