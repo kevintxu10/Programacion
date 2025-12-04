@@ -13,6 +13,7 @@ public class Pelicula {
     private boolean isAlquilada;
 
 
+
     public Pelicula(String cod, String titulo, Genero genero) {
         this.cod = cod;
         this.titulo = titulo;
@@ -28,6 +29,7 @@ public class Pelicula {
     public void setFechaAlquiler(LocalDateTime t) { this.fechaAlquiler = t; }
     public LocalDateTime getFechaAlquiler() { return fechaAlquiler; }
     public void setFechaBaja(LocalDate d) { this.fechaBaja = d; }
+    public String getTitulo() {return titulo;}
 
 
     public void mostrarInfoPelicula() {
