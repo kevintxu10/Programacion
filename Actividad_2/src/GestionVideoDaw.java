@@ -110,6 +110,25 @@ public class GestionVideoDaw {
 
         } while (opcion != 8);
     }
+
+
+    private static String obtenerCIFValido () {
+        Scanner sc = new Scanner(System.in);
+        String cif = sc.nextLine();
+        while (true) {
+            System.out.println("Ingrese un CIF valido para la empresa (Ejemplo: A1234567J):");
+            cif = sc.nextLine().toUpperCase();
+            if (validarCIF(cif)) {
+                System.out.println("\nCIF admitido correctamente.");
+                return cif;
+
+            }
+            System.out.println("CIF invalido. Por favor vuelva a intentarlo.");
+        }
+    }
+    private static boolean validarCIF(String cif) {
+        return cif.matches("^[A-HJNP-S]\\d{7}[0-9A-J]$");
+    }
 }
 
 
