@@ -7,7 +7,7 @@ public class MainAstros {
         Scanner sc = new Scanner(System.in);
         ArrayList<Planeta> planetas = new ArrayList<>();
 
-        // Crear planetas y satélites
+
         Planeta tierra = new Planeta(
                 "Tierra", 5.97e24, 12742,
                 24, 365, 149.6e6
