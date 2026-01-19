@@ -4,7 +4,7 @@ public class Agenda {
 
     private ArrayList<Contacto> contactos;
 
-    public Agenda() {
+    public Agenda()  {
         contactos = new ArrayList<>();
     }
 
