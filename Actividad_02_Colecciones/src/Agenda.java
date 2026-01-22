@@ -12,7 +12,7 @@ public class Agenda {
         for (Contacto contacto : contactos) {
             if (contacto.getNombre().equalsIgnoreCase(c.getNombre())) {
                 System.out.println("El contacto ya existe.");
-                return;
+                       return;
             }
         }
         contactos.add(c);

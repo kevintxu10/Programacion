@@ -5,7 +5,7 @@ public class Principal {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        Agenda agenda = new Agenda();
+         Agenda agenda = new Agenda();
         int opcion = 0;
 
         do {
