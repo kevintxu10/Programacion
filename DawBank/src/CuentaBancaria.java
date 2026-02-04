@@ -1,69 +1,71 @@
+import java.util.ArrayList;
+
 public class CuentaBancaria {
 
     private String iban;
-    private String titular;
     private double saldo;
-    private Movimiento[] movimientos;
-    private int numMovimientos;
+    private Cliente cliente;
+    private ArrayList<Movimiento> movimientos;
 
-    public CuentaBancaria(String iban, String titular){
+    public CuentaBancaria(String iban, Cliente cliente) {
         this.iban = iban;
-        this.titular = titular;
+        this.cliente = cliente;
         this.saldo = 0;
-        this.movimientos = new Movimiento[100];
-        this.numMovimientos = 0;
-
+        this.movimientos = new ArrayList<>();
     }
-    public String getIban(){
+
+    public String getIban() {
         return iban;
     }
-    public String getTitular(){
-        return titular;
-    }
-    public double getSaldo(){
+
+    public double getSaldo() {
         return saldo;
     }
-    private void registrarMovimiento(Movimiento m){
-        if (numMovimientos < 100){
-            movimientos[numMovimientos++] = m;
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void ingresar(double cantidad)
+            throws CuentaException, AvisarHaciendaException {
+
+        if (cantidad <= 0) {
+            throw new CuentaException("Cantidad de ingreso inválida");
+        }
+
+        saldo += cantidad;
+        movimientos.add(new Movimiento("Ingreso", cantidad));
+
+        if (cantidad >= 3000) {
+            throw new AvisarHaciendaException(
+                    cliente.nombre, iban, cantidad
+            );
         }
     }
-    public void mostrarMovimientos(){
-        if (numMovimientos == 0){
-            System.out.println("No hay movimientos.");
-            return;
+
+    public void retirar(double cantidad)
+            throws CuentaException, AvisarHaciendaException {
+
+        if (cantidad <= 0) {
+            throw new CuentaException("Cantidad de retirada inválida");
         }
-        for (int i = 0; i < numMovimientos; i++){
-            movimientos[i].mostrarInfoMovimiento();
+
+        if (saldo - cantidad < -50) {
+            throw new CuentaException("No se permite saldo inferior a -50€");
         }
-    }
-    public void ingresar(double cantidad, String fecha){
-        if (cantidad <= 0){
-            System.out.println("Cantidad invalida");
-            return;
-        }
-        saldo +=cantidad;
-        registrarMovimiento(new Movimiento(fecha, "Ingreso", cantidad));
-        if (cantidad >= 3000){
-            System.out.println("AVISO: Notificar a hacienda");
-        }
-    }
-    public void retirar (double cantidad, String fecha){
-        if (cantidad <= 0){
-            System.out.println("Cantidad invalida");
-            return;
-        }
-        if (saldo - cantidad < -50){
-            System.out.println("AVISO: Saldo negativo. Operacion no permitida");
-            return;
-        }
+
         saldo -= cantidad;
-        registrarMovimiento(new Movimiento(fecha, "Retirada", cantidad));
-        if (saldo < 0){
-            System.out.println("AVISO: Saldo negativo");
+        movimientos.add(new Movimiento("Retirada", cantidad));
+
+        if (cantidad >= 3000) {
+            throw new AvisarHaciendaException(
+                    cliente.nombre, iban, cantidad
+            );
         }
-        if (cantidad > 3000){
-            System.out.println("AVISO: Notificar a hacienda");
-        }
+    }
+
+    public ArrayList<Movimiento> getMovimientos() {
+        return movimientos;
     }
 }
+
