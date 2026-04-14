@@ -8,13 +8,9 @@ public class SQLDataBaseManager {
 
     private static final String URL = "jdbc:mysql://localhost:3306/tareas_db";
     private static final String USER = "developer";
-    private static final String PASS = "developer";
+    private static final String PASS = "developer"; // cambia esto
 
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL, USER, PASS);
     }
 }
-
-
-
-

@@ -6,7 +6,7 @@ public class Tarea extends Elemento {
     private boolean completada;
 
     public Tarea(int id, String descripcion, String asignatura, boolean completada) {
-        super(id, descripcion);
+        super(id, descripcion); //  llamada a la clase padre
         this.asignatura = asignatura;
         this.completada = completada;
     }
